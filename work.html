@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Work · Ellen Lawaetz</title>
+<meta name="description" content="Brand UGC and travel & hotel video and photography by Ellen Lawaetz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="cursor-dot"></div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ellen <em>Lawaetz</em></a>
+    <ul class="nav-links">
+      <li><a href="work.html" class="current" data-i18n="nav-work">Work</a></li>
+      <li><a href="case-studies.html" data-i18n="nav-cases">Case Studies</a></li>
+      <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+      <li><a href="index.html#services" data-i18n="nav-services">Services</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="da" onclick="setLang('da')">DA</button>
+      </div>
+      <a href="mailto:ellen@eltzbookings.dk" class="nav-cta" data-i18n="nav-cta">Let's talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero has-media-bg">
+  <!-- Placeholder photos below - swap the src on each <img> for your own (one per tab: Brand UGC / Travel & Hotels). Keep the "hero-bg-img" and "brand-bg"/"travel-bg" classes so the hover + tab-switch effect keeps working. -->
+  <div class="hero-bg-media">
+    <img class="hero-bg-img brand-bg active" src="Banner.jpeg" alt="">
+    <video class="hero-bg-img travel-bg" src="DJI_0561.mov" muted loop playsinline preload="metadata"></video>
+  </div>
+  <a href="index.html#work" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="back-link">Back to portfolio</span></a>
+  <div class="eyebrow" data-i18n="work-eyebrow">Portfolio</div>
+  <h1 data-i18n-tab="h1">Brand <em>UGC</em></h1>
+  <p class="lede" data-i18n-tab="lede">A selection of content across categories, created to feel native to the platform, build trust, and drive action.</p>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="port-tabs">
+    <button class="port-tab active" data-tab="brand" data-i18n="tab-brand">Brand UGC</button>
+    <button class="port-tab" data-tab="travel" data-i18n-html="tab-travel">Travel <span class="amp">&amp;</span> Hotels</button>
+  </div>
+
+  <!-- BRAND -->
+  <div class="port-panel active" id="panel-brand">
+    <div class="port-tabs filter-tabs" id="brand-filter-tabs">
+      <button class="port-tab active" data-filter="all" data-i18n="filter-all">All</button>
+      <button class="port-tab" data-filter="home" data-i18n="cat-home">Home & Lifestyle</button>
+      <button class="port-tab" data-filter="fitness" data-i18n="cat-fitness">Health & Fitness</button>
+      <button class="port-tab" data-filter="fashion" data-i18n="cat-fashion">Fashion & Accessories</button>
+      <button class="port-tab" data-filter="tech" data-i18n="cat-tech">Electronics & Tech</button>
+      <button class="port-tab" data-filter="food" data-i18n="cat-food">Food & Restaurant</button>
+      <button class="port-tab" data-filter="lifestyle" data-i18n="cat-lifestyle">Events & In House</button>
+    </div>
+    <div class="video-wall" id="brand-wall">
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Trento_gulvlampe_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Outletlamper</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fuld_langebordslampe_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Outletlamper</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="TheNap.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">TheNap</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="TheNap1.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">TheNap</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Sengeverden_web.mp4" poster="Sengeverden_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Sengeverden</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving.mov" poster="Fjordliving_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving1.mov" poster="Fjordliving1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket.mov" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreaverket_web.mp4" poster="Kreaverket_web_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kuppellampe%20Kreav%C3%A6rket%20m.%20musik%20og%20effekter.mov" poster="Kuppellampe_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket3.MP4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fitness"><div class="video-thumb fitness"><video class="video-el" src="Protein_dk_fuld_video_web.mp4" poster="Proteindk_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Protein.dk</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fitness"><div class="video-thumb fitness"><video class="video-el" src="Protein_pulver_web.mp4" poster="Proteinpulver_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Protein.dk</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fitness"><div class="video-thumb fitness"><video class="video-el" src="Kollagen_Protein_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Protein.dk</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fitness"><div class="video-thumb fitness"><video class="video-el" src="Gut_Repair_Proteindk_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Protein.dk</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fitness"><div class="video-thumb fitness"><video class="video-el" src="Myprotein_web.mp4" poster="Myprotein_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">MyProtein</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fashion"><div class="video-thumb fashion"><video class="video-el" src="Fadeless_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fadeless</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fashion"><div class="video-thumb fashion"><video class="video-el" src="Fadeless1_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fadeless</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fashion"><div class="video-thumb fashion"><video class="video-el" src="Fadeless2_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fadeless</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fashion"><div class="video-thumb fashion"><video class="video-el" src="Travelpack%201%20m.%20musik.mov" poster="TravelPack1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">TravelPack</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="fashion"><div class="video-thumb fashion"><video class="video-el" src="Travelpack%202%20m.%20musik.mov" poster="TravelPack2_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">TravelPack</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Smart_Projektor_NV1_web.mp4" poster="NV1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Nordic Visual</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Smart%20projektor%20%232%20med%20musik.MOV" poster="NV2_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Nordic Visual</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Fuld_video_web.mp4" poster="NV3_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Nordic Visual</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Fuld_video_kopi_web.mp4" poster="NV4_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Nordic Visual</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Cleanfriend_web.mp4" poster="Cleanfriend_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Cleanfriend</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Cleanfriend1_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Cleanfriend</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="tech"><div class="video-thumb tech"><video class="video-el" src="Flicks_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Flicks</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="food"><div class="video-thumb food"><video class="video-el" src="Byenssushi_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Byenssushi</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="food"><div class="video-thumb food"><video class="video-el" src="Byenssushi1_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Byenssushi</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="food"><div class="video-thumb food"><video class="video-el" src="Byenssuhsi2_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Byenssushi</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="food"><div class="video-thumb food"><video class="video-el" src="Restaurant_henne_strand_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="lifestyle"><div class="video-thumb lifestyle"><video class="video-el" src="LaPrinseca_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">La Princessa</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="lifestyle"><div class="video-thumb lifestyle"><video class="video-el" src="Buildabear_dansk_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Build a Bear</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="lifestyle"><div class="video-thumb lifestyle"><video class="video-el" src="SurfAgency_web.mp4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">SurfAgency</div><div class="video-flag">🇩🇰</div></div></div>
+    </div>
+  </div>
+
+  <!-- TRAVEL -->
+  <div class="port-panel" id="panel-travel">
+    <div class="port-tabs filter-tabs" id="travel-filter-tabs">
+      <button class="port-tab active" data-filter="all" data-i18n="filter-all">All</button>
+      <button class="port-tab" data-filter="hotel" data-i18n="cat-hotels">Hotels & Luxury</button>
+      <button class="port-tab" data-filter="glamping" data-i18n="cat-glamping">Glamping & Nature</button>
+      <button class="port-tab" data-filter="xp" data-i18n="cat-xp">Experiences & Destinations</button>
+    </div>
+    <div class="video-wall" id="travel-wall">
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="VillaNautica_web.mp4" poster="VillaNautica_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Villa Nautica, Maldives</div><div class="video-flag">🇬🇧</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="VillaNautica1_web.mp4" poster="VillaNautica1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Villa Nautica, Maldives</div><div class="video-flag">🇬🇧</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="VillaNautica2_web.mp4" poster="VillaNautica2_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Villa Nautica, Maldives</div><div class="video-flag">🇬🇧</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="HotelKreta_web.mp4" poster="HotelKreta_poster2.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Luxury Villa, Crete</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="HenneStrand_web.mp4" poster="HenneStrand_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="HytteHenneStrand_web.mp4" poster="HytteHenneStrand_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="MassageHenneStrand_web.mp4" poster="MassageHenneStrand_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="HenneStrandVlog_web.mp4" poster="HenneStrandVlog_poster3.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="HenneStrand1_web.mp4" poster="HenneStrand1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Henne Strand Resort</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="glamping"><div class="video-thumb glamping"><video class="video-el" src="Campanyon_web.mp4" poster="Campanyon_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Campanyon</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="glamping"><div class="video-thumb glamping"><video class="video-el" src="EngelskCampanyon_web.mp4" poster="EngelskCampanyon_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Campanyon</div><div class="video-flag">🇬🇧</div></div></div>
+      <div class="video-card" data-cat="glamping"><div class="video-thumb glamping"><video class="video-el" src="Campanyon1_web.mp4" poster="Campanyon1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Campanyon</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymInterview_web.mp4" poster="GymInterview_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymTour_web.mp4" poster="GymTour_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymTimelapse_web.mp4" poster="GymTimelapse_poster2.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymReception_web.mp4" poster="GymReception_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="hotel"><div class="video-thumb hotel"><video class="video-el" src="Landsted_web.mp4" poster="Landsted_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Estate</div><div class="video-flag">🇩🇰</div></div></div>
+      </div>
+  </div>
+</section>
+
+<section class="section contact-cta">
+  <div class="section-label" data-i18n="cta-label">Let's work together</div>
+  <h2 class="section-title" data-i18n="cta-title">Ready to create something?</h2>
+  <p class="section-intro" data-i18n="cta-intro">Whether you're looking for a single video or a long-term partnership, I'd love to hear about your brand and what you're trying to achieve.</p>
+  <a href="mailto:ellen@eltzbookings.dk" class="contact-email">ellen@eltzbookings.dk</a>
+  <div class="contact-btns">
+    <a href="mailto:ellen@eltzbookings.dk" class="btn btn-outline" data-i18n="cta-btn1">Send an email</a>
+    <a href="https://www.instagram.com/content_ellenlawaetz" target="_blank" class="btn btn-outline" data-i18n="cta-btn2">Instagram</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-name">Ellen Lawaetz</a>
+      <p style="color:rgba(246,241,231,0.4);font-size:0.8rem;margin-top:0.5rem;" data-i18n="footer-tag">UGC & Content Creator · Aarhus, Denmark</p>
+    </div>
+    <div class="footer-links">
+      <a href="work.html" data-i18n="nav-work">Work</a>
+      <a href="case-studies.html" data-i18n="nav-cases">Case Studies</a>
+      <a href="index.html#about" data-i18n="nav-about">About</a>
+      <a href="index.html#services" data-i18n="nav-services">Services</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy" data-i18n="footer-copy">© 2026 Ellen Lawaetz. All content and imagery belong to their respective brand owners.</span>
+    <div class="icon-row">
+      <a href="https://www.instagram.com/content_ellenlawaetz" target="_blank" rel="noopener" class="icon-btn" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+      <a href="https://www.tiktok.com/@ellenlawaetz" target="_blank" rel="noopener" class="icon-btn" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 1.9 1.6 3.4 3.5 3.8v2.6c-1.3 0-2.5-.4-3.5-1.1v6.4c0 3.1-2.5 5.3-5.4 5.3-3 0-5.4-2.3-5.4-5.3 0-2.9 2.3-5.2 5.2-5.3v2.7c-1.4.1-2.5 1.2-2.5 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.8-1.1 2.8-2.7V3h2.6z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ellen-lawaetz-659300328/" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="7.5" cy="8" r="1" fill="currentColor" stroke="none"/><path d="M6.9 10.7v6.6M11.2 10.7v6.6M11.2 13.6c0-1.6 1-2.9 2.5-2.9 1.6 0 2.6 1 2.6 3v3.6" fill="none"/></svg></a>
+      <a href="mailto:ellen@eltzbookings.dk" class="icon-btn" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+  // (Hero heading, lede, and background media are switched centrally in i18n.js's activateTab())
+
+  // Only play the hero background video while hovering the section
+  var heroSection = document.querySelector('.page-hero.has-media-bg');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', function(){
+      var active = heroSection.querySelector('.hero-bg-img.active');
+      if (active && active.tagName === 'VIDEO') {
+        active.currentTime = 0;
+        active.play().catch(function(){});
+      }
+    });
+    heroSection.addEventListener('mouseleave', function(){
+      heroSection.querySelectorAll('video.hero-bg-img').forEach(function(v){ v.pause(); });
+    });
+  }
+
+  // Category filter tabs (Brand UGC + Travel & Hotels)
+  function wireFilter(tabsId, wallId, itemSelector) {
+    var tabs = document.getElementById(tabsId);
+    var wall = document.getElementById(wallId);
+    if (!tabs || !wall) return;
+    tabs.querySelectorAll('.port-tab').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        tabs.querySelectorAll('.port-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var cat = btn.dataset.filter;
+        wall.querySelectorAll(itemSelector).forEach(function(item){
+          item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  }
+  wireFilter('brand-filter-tabs', 'brand-wall', '.video-card');
+  wireFilter('travel-filter-tabs', 'travel-wall', '.video-card');
+
+  // Click-to-play for grid video tiles (never autoplay; toggle on click)
+  document.querySelectorAll('.video-card').forEach(function(card){
+    var vid = card.querySelector('video.video-el');
+    if (!vid) return;
+    card.addEventListener('click', function(){
+      if (vid.paused) {
+        document.querySelectorAll('.video-card video.video-el').forEach(function(other){
+          if (other !== vid) { other.pause(); other.currentTime = 0; other.closest('.video-card').classList.remove('playing'); }
+        });
+        vid.play().catch(function(){});
+        card.classList.add('playing');
+      } else {
+        vid.pause();
+        card.classList.remove('playing');
+      }
+    });
+  });
+</script>
+</body>
+</html>

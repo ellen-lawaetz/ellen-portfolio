@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Portfolio, Ellen Lawaetz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #F6F4F0;
+      --bg2:    #EDE8E1;
+      --bg3:    #E3DDD5;
+      --text:   #6B5D52;
+      --muted:  #A09080;
+      --accent: #C4B5A5;
+      --dark:   #2E2219;
+      --white:  #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg); color: var(--text);
+      font-weight: 300; overflow-x: hidden;
+    }
+
+    /* ============================
+       NAV
+    ============================ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(246,244,240,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,181,165,.25);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links .nav-pill a {
+      padding: 8px 20px; border: 1px solid var(--text);
+      transition: all .2s;
+    }
+    .nav-links .nav-pill a:hover {
+      background: var(--dark); border-color: var(--dark); color: var(--white);
+    }
+    .nav-social { display: flex; align-items: center; gap: 16px; }
+    .nav-social a { color: var(--muted); transition: color .2s; display: flex; }
+    .nav-social a:hover { color: var(--dark); }
+    .nav-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ============================
+       HERO, full viewport, editorial
+    ============================ */
+    #hero {
+      min-height: 100vh; padding-top: 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .hero-left {
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      justify-content: center; padding: 80px 64px;
+      position: relative;
+    }
+    .hero-left::after {
+      content: ''; position: absolute; right: 0; top: 10%; bottom: 10%;
+      width: 1px; background: var(--accent); opacity: .4;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--accent);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 7.5vw, 108px);
+      font-weight: 300; line-height: 0.92;
+      color: var(--dark); margin-bottom: 40px;
+    }
+    .hero-title .italic { font-style: italic; }
+    .hero-meta-row {
+      display: flex; flex-direction: column; gap: 8px; margin-bottom: 44px;
+    }
+    .hero-name-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300;
+      color: var(--text); letter-spacing: 0.04em;
+    }
+    .hero-tag-line {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); display: flex; align-items: center; gap: 12px;
+    }
+    .hero-desc {
+      font-size: 14px; line-height: 1.9; color: var(--muted);
+      max-width: 380px; margin-bottom: 44px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 32px;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      text-decoration: none; transition: all .25s;
+      border: 1px solid var(--dark); color: var(--dark); background: transparent;
+    }
+    .btn:hover { background: var(--dark); color: var(--white); }
+    .btn-fill { background: var(--dark); color: var(--white); }
+    .btn-fill:hover { background: transparent; color: var(--dark); }
+    .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* hero right: collage */
+    .hero-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px; padding: 4px; background: var(--bg2);
+    }
+    .hero-img {
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); border: 1px dashed var(--accent);
+      position: relative; overflow: hidden;
+    }
+    .hero-img.tall { grid-row: span 2; }
+    .hero-img span {
+      position: absolute; bottom: 14px; left: 14px;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(46,34,25,.5);
+    }
+    .hero-img-ph { color: var(--muted); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    /* ============================
+       TICKER
+    ============================ */
+    .ticker-wrap {
+      background: var(--dark); overflow: hidden; padding: 16px 0;
+    }
+    .ticker {
+      display: flex; white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-item {
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); padding: 0 40px; flex-shrink: 0;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ============================
+       SECTION UTILITIES
+    ============================ */
+    .section-eyebrow {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+    .section-eyebrow.light { color: var(--accent); }
+    .section-eyebrow.light::before { background: var(--accent); }
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.5vw, 58px); font-weight: 300;
+      color: var(--dark); line-height: 1.05;
+    }
+    .s-title.light { color: var(--white); }
+    .s-title .italic { font-style: italic; }
+
+    .social-row { display: flex; align-items: center; gap: 14px; }
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      border: 1px solid var(--accent); color: var(--text);
+      text-decoration: none; transition: all .2s;
+    }
+    .social-icon:hover { background: var(--dark); border-color: var(--dark); color: var(--white); }
+    .social-icon svg { width: 17px; height: 17px; fill: currentColor; }
+
+    /* ============================
+       HOTELS SECTION
+    ============================ */
+    #hotels {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
+    }
+    .hotels-intro {
+      padding: 80px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--bg);
+    }
+    .hotels-collage {
+      background: var(--bg2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px; padding: 4px;
+    }
+    .hc-cell {
+      background: var(--bg3);
+      display: flex; align-items: flex-end; padding: 14px;
+      border: 1px dashed var(--accent);
+      position: relative; overflow: hidden; min-height: 180px;
+    }
+    .hc-cell::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(46,34,25,.45));
+    }
+    .hc-label {
+      position: relative; z-index: 1;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+    }
+    .hc-cell.tall { grid-row: span 2; }
+    .hotels-intro-desc {
+      font-size: 14px; line-height: 1.9; color: var(--muted);
+      max-width: 380px; margin: 24px 0 40px;
+    }
+    .hotel-entry { margin-bottom: 36px; }
+    .hotel-entry h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 300; color: var(--dark); margin-bottom: 4px;
+    }
+    .hotel-entry .h-loc {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================
+       VIDEO GRID
+    ============================ */
+    .vid-section { padding: 80px 64px; }
+    .vid-section.dark { background: var(--dark); }
+    .vid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 10px; margin-top: 44px;
+    }
+    .vid-card {
+      background: var(--bg2); aspect-ratio: 9/16;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding: 18px; text-align: center;
+      border: 1px solid transparent; position: relative;
+      overflow: hidden; transition: border-color .25s;
+    }
+    .vid-card.dark-card { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
+    .vid-card:hover { border-color: var(--accent); }
+    .vid-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%) translateY(-8px);
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 11px; opacity: .7;
+    }
+    .vid-play.light { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.4); }
+    .vid-brand {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dark); margin-bottom: 3px; position: relative; z-index: 1;
+    }
+    .vid-brand.light { color: rgba(255,255,255,.7); }
+    .vid-type {
+      font-size: 10px; color: var(--muted); position: relative; z-index: 1;
+    }
+    .vid-type.light { color: rgba(255,255,255,.35); }
+
+    /* ============================
+       CASE STUDY
+    ============================ */
+    .case-study {
+      background: var(--dark); padding: 80px 64px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .cs-eyebrow {
+      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .cs-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--muted); }
+    .cs-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(19px, 2.2vw, 27px); font-weight: 300; font-style: italic;
+      line-height: 1.65; color: rgba(255,255,255,.82); margin-bottom: 28px;
+    }
+    .cs-attr { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .cs-note { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.8; margin-top: 16px; }
+    .cs-thumbs {
+      display: flex; gap: 10px; flex-wrap: wrap; padding-top: 16px;
+    }
+    .cs-thumb {
+      background: rgba(255,255,255,.07); border: 1px dashed rgba(255,255,255,.15);
+      width: 120px; aspect-ratio: 9/16;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); text-align: center; padding: 10px;
+    }
+
+    /* ============================
+       RESORT FULL FEATURE
+    ============================ */
+    #resort { }
+    .resort-header {
+      background: var(--bg2); padding: 80px 64px 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .resort-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 64px); font-weight: 300;
+      color: var(--dark); line-height: 1.05; margin-bottom: 12px;
+    }
+    .resort-title .italic { font-style: italic; }
+    .resort-subtitle {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 24px;
+    }
+    .resort-desc { font-size: 14px; line-height: 1.9; color: var(--muted); }
+    .resort-banner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 4px; padding: 0 64px; margin-bottom: 4px;
+    }
+    .resort-img {
+      background: var(--bg3);
+      aspect-ratio: 9/16;
+      display: flex; align-items: flex-end; padding: 12px;
+      border: 1px dashed var(--accent); position: relative;
+    }
+    .resort-img::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(46,34,25,.35));
+    }
+    .resort-img span {
+      position: relative; z-index: 1;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+    .resort-photos {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 4px; padding: 0 64px 60px;
+    }
+    .resort-photo {
+      background: var(--bg3); aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px dashed var(--accent);
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================
+       LOCATIONS ROW
+    ============================ */
+    .locations-section { padding: 80px 64px; }
+    .locations-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 48px; }
+    .loc-card { }
+    .loc-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 300; color: var(--dark); margin-bottom: 4px;
+    }
+    .loc-tag {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .loc-vids {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    }
+    .loc-vid {
+      background: var(--bg2); aspect-ratio: 9/16;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding: 12px; text-align: center;
+      border: 1px dashed var(--accent); position: relative;
+    }
+    .loc-vid .vid-play { font-size: 10px; }
+    .loc-vid span {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================
+       DRONE
+    ============================ */
+    #drone {
+      background: var(--dark); padding: 80px 64px;
+    }
+    .drone-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: rgba(196,181,165,.1); margin-top: 48px;
+    }
+    .drone-clip {
+      background: rgba(255,255,255,.04); aspect-ratio: 16/9;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px;
+    }
+    .drone-icon { font-size: 26px; }
+    .drone-lbl {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ============================
+       PHOTOGRAPHY
+    ============================ */
+    #photography { padding: 80px 64px; }
+    .photo-masonry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px; gap: 8px; margin-top: 48px;
+    }
+    .photo-cell {
+      background: var(--bg2); border: 1px dashed var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .photo-cell.r2 { grid-row: span 2; }
+    .photo-cell.c2 { grid-column: span 2; }
+
+    /* ============================
+       ABOUT
+    ============================ */
+    #about {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+    .about-visual {
+      background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); border: 1px dashed var(--accent);
+    }
+    .about-content {
+      padding: 80px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--bg);
+    }
+    .about-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 60px); font-weight: 300;
+      color: var(--dark); line-height: 1.05; margin-bottom: 28px;
+    }
+    .about-heading .italic { font-style: italic; }
+    .about-body {
+      font-size: 15px; line-height: 1.95; color: var(--text);
+      margin-bottom: 16px; max-width: 480px;
+    }
+    .about-btns { display: flex; gap: 14px; flex-wrap: wrap; margin: 36px 0 32px; }
+    .brand-portfolio-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px; transition: color .2s;
+    }
+    .brand-portfolio-link:hover { color: var(--dark); }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    #contact { padding: 120px 64px; text-align: center; }
+    .contact-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 8vw, 100px); font-weight: 300;
+      color: var(--dark); line-height: 0.95; margin-bottom: 28px;
+    }
+    .contact-big .italic { font-style: italic; }
+    .contact-sub {
+      font-size: 14px; color: var(--muted); margin-bottom: 52px;
+      line-height: 1.7; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .contact-email {
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; color: var(--text);
+      text-decoration: none; margin-bottom: 52px; transition: color .2s;
+    }
+    .contact-email:hover { color: var(--dark); }
+    .contact-social {
+      display: flex; justify-content: center; gap: 14px; margin-top: 16px; flex-wrap: wrap;
+    }
+    .c-social-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px; border: 1px solid var(--bg3);
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text); text-decoration: none; transition: all .2s;
+    }
+    .c-social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .c-social-btn:hover { border-color: var(--dark); color: var(--dark); }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--dark); padding: 32px 64px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); text-decoration: none;
+    }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 24px; align-items: center; }
+    .footer-links a {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(255,255,255,.4); transition: color .2s; display: flex; }
+    .footer-social a:hover { color: var(--accent); }
+    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 100px 36px 60px; }
+      #hotels { grid-template-columns: 1fr; }
+      .hotels-collage { min-height: 400px; grid-template-rows: 1fr 1fr; }
+      .case-study { grid-template-columns: 1fr; gap: 40px; }
+      .resort-header { grid-template-columns: 1fr; }
+      .resort-banner, .resort-photos { padding: 0 36px; }
+      .resort-banner { grid-template-columns: repeat(2, 1fr); }
+      .resort-photos { grid-template-columns: repeat(2, 1fr); }
+      .locations-grid { grid-template-columns: 1fr; }
+      .drone-grid { grid-template-columns: 1fr 1fr; }
+      #about { grid-template-columns: 1fr; }
+      .about-visual { min-height: 340px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG ICONS -->
+<svg style="display:none">
+  <symbol id="ico-instagram" viewBox="0 0 24 24">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+  </symbol>
+  <symbol id="ico-tiktok" viewBox="0 0 24 24">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.53V6.77a4.85 4.85 0 01-1.01-.08z"/>
+  </symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Ellen Lawaetz</a>
+  <ul class="nav-links">
+    <li><a href="#hotels">Hotels</a></li>
+    <li><a href="#resort">Resort</a></li>
+    <li><a href="#drone">Drone</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li class="nav-pill"><a href="brand-portfolio.html">Brand Portfolio</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/content_ellenlawaetz/" target="_blank" aria-label="Instagram">
+      <svg><use href="#ico-instagram"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@ellenlawaetz" target="_blank" aria-label="TikTok">
+      <svg><use href="#ico-tiktok"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ellen-lawaetz-659300328/" target="_blank" aria-label="LinkedIn">
+      <svg><use href="#ico-linkedin"/></svg>
+    </a>
+    <a href="mailto:ellen@eltzbookings.dk" aria-label="Email">
+      <svg><use href="#ico-mail"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Travel &amp; Hotel Content</p>
+    <h1 class="hero-title">
+      Travel<br>
+      <span class="italic">Portfolio</span>
+    </h1>
+    <div class="hero-meta-row">
+      <span class="hero-name-line">Ellen Lawaetz</span>
+      <span class="hero-tag-line">Content Creator &nbsp;·&nbsp; iPhone &amp; Drone &nbsp;·&nbsp; DK</span>
+    </div>
+    <p class="hero-desc">Capturing the vibe of a place on video. The small moments, the feeling, the atmosphere. Both on the ground and from the air. Traveling and creating since 2024.</p>
+    <div class="hero-cta-row">
+      <a href="#hotels" class="btn btn-fill">View Work</a>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img tall">
+      <span class="hero-img-ph">Video / Photo</span>
+      <span>Featured</span>
+    </div>
+    <div class="hero-img">
+      <span class="hero-img-ph">Photo</span>
+    </div>
+    <div class="hero-img">
+      <span class="hero-img-ph">Video</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Luxury Hotels</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Drone Footage</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Aesthetic Content</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Resort Collaborations</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Travel Vlogs</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">iPhone Filmmaking</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Luxury Hotels</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Drone Footage</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Aesthetic Content</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Resort Collaborations</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">Travel Vlogs</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item">iPhone Filmmaking</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+  </div>
+</div>
+
+<!-- HOTELS -->
+<section id="hotels">
+  <div class="hotels-intro">
+    <p class="section-eyebrow">Featured hotels</p>
+    <h2 class="s-title">Luxury <span class="italic">Hotels</span></h2>
+    <p class="hotels-intro-desc">I create aesthetic and cinematic content for hotels and villas that showcases the atmosphere, the details, and the experience you offer your guests.</p>
+    <div class="hotel-entry">
+      <h3>Villa Nautica</h3>
+      <p class="h-loc">Maldives</p>
+    </div>
+    <div class="hotel-entry">
+      <h3>Luxury Villa</h3>
+      <p class="h-loc">Crete, Greece</p>
+    </div>
+    <a href="#contact" class="btn btn-fill" style="width:fit-content;">Work with me</a>
+  </div>
+  <div class="hotels-collage">
+    <div class="hc-cell tall" style="background:#C4B5A5;">
+      <span class="hc-label">Villa Nautica, Maldives</span>
+    </div>
+    <div class="hc-cell" style="background:#BFB0A3;">
+      <span class="hc-label">Aesthetic</span>
+    </div>
+    <div class="hc-cell" style="background:#D3C5B5;">
+      <span class="hc-label">Luxury Villa, Crete</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY: CAMPANYON -->
+<div class="case-study">
+  <div>
+    <p class="cs-eyebrow">Case Study / Retainer</p>
+    <p class="cs-quote">"We've collaborated with Ellen several times and truly appreciate how smooth and easy the process always is. She is well-prepared, communicates clearly, and has a natural understanding of the look and atmosphere we're aiming for."</p>
+    <p class="cs-attr">Marie, Campanyon</p>
+    <p class="cs-note">Retainer client since August 2025, aesthetic content for camping places</p>
+  </div>
+  <div>
+    <div class="cs-thumbs">
+      <div class="cs-thumb"><span>&#9654;</span><span>Collab</span></div>
+      <div class="cs-thumb"><span>&#9654;</span><span>Lifestyle</span></div>
+      <div class="cs-thumb"><span>&#9654;</span><span>Alpaca Cottage</span></div>
+      <div class="cs-thumb"><span>&#9654;</span><span>Cold Hand Winery</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESORT -->
+<section id="resort">
+  <div class="resort-header">
+    <div>
+      <p class="section-eyebrow">Featured resort</p>
+      <h2 class="resort-title">Henne Strand<br><span class="italic">Resort</span></h2>
+      <p class="resort-subtitle">Westcoast Denmark</p>
+      <p class="resort-desc">Aesthetic, vlog, restaurant, and drone content for this beautiful Westcoast resort. A recurring collaboration capturing everything from the food to the surroundings.</p>
+    </div>
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+        <div class="resort-img" style="background:#C4B5A5;"><span>Aesthetic</span></div>
+        <div class="resort-img" style="background:#D3C5B5;"><span>Vlog</span></div>
+        <div class="resort-img" style="background:#BFB0A3;"><span>Restaurant</span></div>
+        <div class="resort-img" style="background:#CAB9AA;"><span>Surroundings</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="resort-photos">
+    <div class="resort-photo">Photo</div>
+    <div class="resort-photo">Photo</div>
+    <div class="resort-photo">Photo</div>
+    <div class="resort-photo">Photo</div>
+  </div>
+</section>
+
+<!-- OTHER LOCATIONS -->
+<section class="locations-section">
+  <p class="section-eyebrow">More content</p>
+  <h2 class="s-title">Other <span class="italic">Locations</span></h2>
+  <div class="locations-grid">
+    <div class="loc-card">
+      <h3>The Westcoast</h3>
+      <p class="loc-tag">Denmark &nbsp;·&nbsp; Homes &amp; Apartments</p>
+      <div class="loc-vids">
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Home for Sale</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Drone Photo</span></div>
+      </div>
+    </div>
+    <div class="loc-card">
+      <h3>The Gym Aarhus</h3>
+      <p class="loc-tag">Aarhus, DK &nbsp;·&nbsp; Exclusive Gym</p>
+      <div class="loc-vids">
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Aesthetic</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Walkthrough</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Member XP</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Surroundings</span></div>
+      </div>
+    </div>
+    <div class="loc-card">
+      <h3>Campanyon Spots</h3>
+      <p class="loc-tag">Denmark &nbsp;·&nbsp; Camping &amp; Nature</p>
+      <div class="loc-vids">
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Vlog (EN)</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Tent</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Cottage</span></div>
+        <div class="loc-vid"><div class="vid-play" style="position:static;transform:none;margin-bottom:8px;width:28px;height:28px;font-size:10px;">&#9654;</div><span>Travel</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRONE -->
+<section id="drone">
+  <p class="section-eyebrow light">Aerial footage</p>
+  <h2 class="s-title light">Drone <span class="italic">Content</span></h2>
+  <p style="font-size:14px; color:rgba(255,255,255,.45); margin-top:16px; line-height:1.8; max-width:480px;">Destinations captured from above. Coastal landscapes, resort grounds, and travel moments that show the bigger picture.</p>
+  <div class="drone-grid">
+    <div class="drone-clip">
+      <span class="drone-icon">🚁</span>
+      <span class="drone-lbl">Henne Strand</span>
+    </div>
+    <div class="drone-clip">
+      <span class="drone-icon">🚁</span>
+      <span class="drone-lbl">The Westcoast</span>
+    </div>
+    <div class="drone-clip">
+      <span class="drone-icon">🚁</span>
+      <span class="drone-lbl">Travel / Roadtrip</span>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOGRAPHY -->
+<section id="photography">
+  <p class="section-eyebrow">Photography</p>
+  <h2 class="s-title">Travel <span class="italic">Photos</span></h2>
+  <div class="photo-masonry">
+    <div class="photo-cell r2">Photo</div>
+    <div class="photo-cell">Photo</div>
+    <div class="photo-cell">Photo</div>
+    <div class="photo-cell">Photo</div>
+    <div class="photo-cell r2">Photo</div>
+    <div class="photo-cell">Photo</div>
+    <div class="photo-cell c2">Photo</div>
+    <div class="photo-cell">Photo</div>
+    <div class="photo-cell">Photo</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">Your photo here</div>
+  <div class="about-content">
+    <p class="section-eyebrow">About me</p>
+    <h2 class="about-heading">Hii,<br>I'm <span class="italic">Ellen</span></h2>
+    <p class="about-body">I'm 22 years old, self-employed UGC and iPhone content creator based in Aarhus, DK. I've always loved capturing moments when traveling, and since 2024 I've made it my mission to create content that truly shows the vibe of a destination.</p>
+    <p class="about-body">I focus on aesthetic and relatable content that inspires people to explore new destinations and lovely stays, while helping brands connect with their audience. Both on the ground and from the air with my drone.</p>
+    <div class="about-btns">
+      <a href="mailto:ellen@eltzbookings.dk" class="btn btn-fill">Let's work together</a>
+      <a href="brand-portfolio.html" class="btn">Brand Portfolio</a>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/content_ellenlawaetz/" target="_blank" class="social-icon" aria-label="Instagram">
+        <svg><use href="#ico-instagram"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@ellenlawaetz" target="_blank" class="social-icon" aria-label="TikTok">
+        <svg><use href="#ico-tiktok"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ellen-lawaetz-659300328/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg><use href="#ico-linkedin"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow" style="justify-content:center;">Get in touch</p>
+  <h2 class="contact-big">
+    Let's work<br>
+    <span class="italic">together!</span>
+  </h2>
+  <p class="contact-sub">Available for hotel stays, destination content, drone footage and long-term collaborations.</p>
+  <a href="mailto:ellen@eltzbookings.dk" class="contact-email">
+    📩 ellen@eltzbookings.dk
+  </a>
+  <a href="mailto:ellen@eltzbookings.dk" class="btn btn-fill" style="font-size:12px;">Send a message</a>
+  <div class="contact-social">
+    <a href="https://www.instagram.com/content_ellenlawaetz/" target="_blank" class="c-social-btn">
+      <svg><use href="#ico-instagram"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.tiktok.com/@ellenlawaetz" target="_blank" class="c-social-btn">
+      <svg><use href="#ico-tiktok"/></svg>
+      TikTok
+    </a>
+    <a href="https://www.linkedin.com/in/ellen-lawaetz-659300328/" target="_blank" class="c-social-btn">
+      <svg><use href="#ico-linkedin"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">Ellen Lawaetz</a>
+  <div class="footer-links">
+    <a href="brand-portfolio.html">Brand Portfolio</a>
+    <a href="mailto:ellen@eltzbookings.dk">ellen@eltzbookings.dk</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/content_ellenlawaetz/" target="_blank" aria-label="Instagram">
+      <svg><use href="#ico-instagram"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@ellenlawaetz" target="_blank" aria-label="TikTok">
+      <svg><use href="#ico-tiktok"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ellen-lawaetz-659300328/" target="_blank" aria-label="LinkedIn">
+      <svg><use href="#ico-linkedin"/></svg>
+    </a>
+    <a href="mailto:ellen@eltzbookings.dk" aria-label="Email">
+      <svg><use href="#ico-mail"/></svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
