@@ -70,7 +70,7 @@
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Sengeverden_web.mp4" poster="Sengeverden_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Sengeverden</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving.mov" poster="Fjordliving_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving1.mov" poster="Fjordliving1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
-      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket.mov" poster="Kreaverket_video_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket.mov" poster="Kreaverket_ejseriost_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreaverket_web.mp4" poster="Kreaverket_web_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kuppellampe%20Kreav%C3%A6rket%20m.%20musik%20og%20effekter.mov" poster="Kuppellampe_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket3.MP4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
@@ -126,7 +126,7 @@
       <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymTour_web.mp4" poster="GymTour_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymTimelapse_web.mp4" poster="GymTimelapse_poster2.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="GymReception_web.mp4" poster="GymReception_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">The Gym Aarhus</div><div class="video-flag">🇩🇰</div></div></div>
-      <div class="video-card" data-cat="xp"><div class="video-thumb hotel"><video class="video-el" src="Landsted_web.mp4" poster="Landsted_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Estate</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="xp"><div class="video-thumb xp"><video class="video-el" src="Landsted_web.mp4" poster="Landsted_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Estate</div><div class="video-flag">🇩🇰</div></div></div>
       </div>
   </div>
 </section>
@@ -205,9 +205,8 @@
   wireFilter('travel-filter-tabs', 'travel-wall', '.video-card');
 
   // Click-to-play for grid video tiles (never autoplay; toggle on click).
-  // Videos are muted by default (needed for smooth thumbnail behavior),
-  // but get unmuted the moment someone actually presses play, and re-muted
-  // when paused or when another video takes over.
+  // Videos are muted by default so hover/grid loading stays quiet, but on a
+  // genuine click we unmute so playback has sound.
   document.querySelectorAll('.video-card').forEach(function(card){
     var vid = card.querySelector('video.video-el');
     if (!vid) return;
