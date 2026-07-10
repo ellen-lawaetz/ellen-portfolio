@@ -70,7 +70,7 @@
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Sengeverden_web.mp4" poster="Sengeverden_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Sengeverden</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving.mov" poster="Fjordliving_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Fjordliving1.mov" poster="Fjordliving1_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Fjordliving</div><div class="video-flag">🇩🇰</div></div></div>
-      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket.mov" poster="Kreaverket_ejseriost_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
+      <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket.mov" poster="Kreaverket_video_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreaverket_web.mp4" poster="Kreaverket_web_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kuppellampe%20Kreav%C3%A6rket%20m.%20musik%20og%20effekter.mov" poster="Kuppellampe_poster.jpg" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
       <div class="video-card" data-cat="home"><div class="video-thumb home"><video class="video-el" src="Kreav%C3%A6rket3.MP4" muted playsinline loop preload="metadata"></video><div class="video-play"></div><div class="media-tag">Kreaværket</div><div class="video-flag">🇩🇰</div></div></div>
@@ -204,19 +204,29 @@
   wireFilter('brand-filter-tabs', 'brand-wall', '.video-card');
   wireFilter('travel-filter-tabs', 'travel-wall', '.video-card');
 
-  // Click-to-play for grid video tiles (never autoplay; toggle on click)
+  // Click-to-play for grid video tiles (never autoplay; toggle on click).
+  // Videos are muted by default (needed for smooth thumbnail behavior),
+  // but get unmuted the moment someone actually presses play, and re-muted
+  // when paused or when another video takes over.
   document.querySelectorAll('.video-card').forEach(function(card){
     var vid = card.querySelector('video.video-el');
     if (!vid) return;
     card.addEventListener('click', function(){
       if (vid.paused) {
         document.querySelectorAll('.video-card video.video-el').forEach(function(other){
-          if (other !== vid) { other.pause(); other.currentTime = 0; other.closest('.video-card').classList.remove('playing'); }
+          if (other !== vid) {
+            other.pause();
+            other.currentTime = 0;
+            other.muted = true;
+            other.closest('.video-card').classList.remove('playing');
+          }
         });
+        vid.muted = false;
         vid.play().catch(function(){});
         card.classList.add('playing');
       } else {
         vid.pause();
+        vid.muted = true;
         card.classList.remove('playing');
       }
     });
