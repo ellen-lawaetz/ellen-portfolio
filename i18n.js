@@ -95,7 +95,7 @@ en: {
   'about-body1': "I'm Ellen, a 22-year-old UGC and iPhone content creator based in Aarhus, Denmark, working with brands around the world in both Danish and English.",
   'about-body2': "My approach is simple: content should feel like it belongs in the feed, not like an ad. I shoot iPhone-first because that's what audiences trust: real light, real settings, real people. Then I edit with an eye for what actually stops a scroll and earns a click.",
   'about-body3': "I'm detail-oriented, easy to brief, and I show up prepared. I especially value long-term partnerships, because they give me the chance to really develop my creative ideas, and I'm proud to say that most of the brands on this site have booked me more than once.",
-  'about-quote': '"Content that feels like it belongs in the feed, not like an ad."',
+  'about-quote': '"Content that feels like it belongs in the feed, not like an ad."',
   'fact-types-t': 'Content types', 'fact-types-b': 'UGC video, lifestyle photography, drone footage, whitelisting',
   'fact-lang-t': 'Languages', 'fact-lang-b': 'Danish & English, bilingual content available',
   'fact-platforms-t': 'Platforms', 'fact-platforms-b': 'Meta ads, TikTok, organic Instagram, YouTube Shorts',
@@ -127,7 +127,7 @@ da: {
 
   'home-pill': 'Baseret i Aarhus · Tilgængelig verden over',
   'home-eyebrow': 'UGC & Content Creator · Aarhus, Danmark',
-  'home-h1': 'Skabt på iPhone.<br>Bygget til at <em>stoppe</em><br>scrollet.',
+  'home-h1': 'Skabt på iPhone.<br>Indhold der betaler sig.',
   'home-sub': 'UGC og rejseindhold på dansk og engelsk, jordnært, æstetisk og skabt til at konvertere. Fra produkt-hooks til hotelfilm, jeg filmer det ægte og redigerer det, der performer.',
   'home-btn1': 'Lad os tale sammen', 'home-btn2': 'Se arbejdet ↓',
   'stat-meta': 'Meta-annoncevisninger', 'stat-retention': 'Fastholdelsesrate', 'stat-satisfaction': 'Kundetilfredshed', 'stat-video': 'Visninger på én video', 'stat-brands': 'Brandsamarbejder',
