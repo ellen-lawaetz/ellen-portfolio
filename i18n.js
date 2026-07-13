@@ -15,7 +15,7 @@ en: {
   // HOME
   'home-pill': 'Based in Aarhus · Available worldwide',
   'home-eyebrow': 'UGC & Content Creator · Aarhus, Denmark',
-  'home-h1': 'Made on iPhone.<br>Built to <em>stop</em><br>the scroll.',
+  'home-h1': 'Made on iPhone.<br>Content that pays off.',
   'home-sub': "UGC and travel content in Danish and English, grounded, aesthetic, and made to convert. From product hooks to hotel films, I shoot what feels true and edit what performs.",
   'home-btn1': "Let's talk", 'home-btn2': 'See the work ↓',
   'stat-meta': 'Meta ad views', 'stat-retention': 'Client retention', 'stat-satisfaction': 'Client satisfaction', 'stat-video': 'Single video views', 'stat-brands': 'Brand partnerships',
