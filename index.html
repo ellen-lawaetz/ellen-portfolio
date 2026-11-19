@@ -745,7 +745,7 @@
         <div class="eyebrow" data-i18n data-da="OM MIG" data-en="ABOUT ME">OM MIG</div>
         <p style="margin-top:14px;" data-i18n
            data-da="Jeg hedder Ellen, er 23 år, og er UGC- og iPhone content creator baseret i Aarhus. Jeg arbejder med brands fra hele verden, på både dansk og engelsk."
-           data-en="I'm Ellen, a 22-year-old UGC and iPhone content creator based in Aarhus, Denmark, working with brands around the world in both Danish and English.">
+           data-en="I'm Ellen, a 23-year-old UGC and iPhone content creator based in Aarhus, Denmark, working with brands around the world in both Danish and English.">
            Jeg hedder Ellen, er 23 år, og er UGC- og iPhone content creator baseret i Aarhus. Jeg arbejder med brands fra hele verden, på både dansk og engelsk.
         </p>
         <p class="body" style="margin-top:16px;" data-i18n
@@ -1640,7 +1640,7 @@
     document.body.style.overflow = '';
   }
   document.querySelectorAll('.ph, .reel-card').forEach(function(el){
-    if(el.querySelector('.play-mini, .play-btn') || el.closest('.photo-strip') || el.classList.contains('tall')){
+    if(el.querySelector('.play-mini, .play-btn') || el.closest('.photo-strip') || el.classList.contains('tall') || el.classList.contains('real')){
       el.style.cursor = 'pointer';
       el.addEventListener('click', function(){ openLightbox(el); });
     }
